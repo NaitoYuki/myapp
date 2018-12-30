@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app: &app
+    build: .
+    command: revel run myapp
+    volumes:
+      - ./:/go/src/myapp
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=revel
+      - MYSQL_USER=revel
+      - MYSQL_PASSWORD=secret

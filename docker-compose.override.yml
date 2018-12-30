@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    ports:
+      - 9000:9000
+  db:
+    ports:
+      - 3307:3306
+    expose:
+      - 3306
+      
